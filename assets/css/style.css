@@ -1,0 +1,1107 @@
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --color-primiry: #003459 ;
+    --color-text-dark: #00171F ;  
+    --color-text-light: #667479 ;  
+    --color-blue: #00A7E7 ;
+    --font: "Be Vietnam Pro", sans-serif ;
+
+}
+
+
+*{
+    box-sizing: border-box ;
+}
+
+body{
+    font-family: var(--font) ;
+    margin: 0 ;    
+    line-height: 1.5; /* kích thước các dòng */
+}
+
+a{
+    text-decoration: none; 
+}
+
+
+/* Container */
+.container{
+    width: 1180px ;
+    margin-left: auto ; 
+    margin-right: auto ; 
+}
+
+@media (max-width: 1199.98px) { 
+    .container { /* Container áp dụng cho màn hình có chiều rộng 1199.98px */
+        width: 960px ; /* Thường để là 960px */
+    }
+}
+
+@media (max-width: 991.98px) {
+    .container { /* Container áp dụng cho màn hình có chiều rộng 991.98px */
+        width: 720px ;  /* Thường để là 720px */
+    }
+}
+
+@media (max-width: 767.98px) { 
+    .container { /* Container áp dụng cho màn hình có chiều rộng 767.98px */
+        width: 540px ;  /* Thường để là 540px */
+    }
+}
+
+@media (max-width: 575.98px) { 
+    .container { /* Container áp dụng cho màn hình có chiều rộng 575.98px */
+        width: 100% ;  /* Thường để là 100% */
+        padding-left: 16px ;
+        padding-right: 16px ; 
+    }
+}
+
+/* End Container */
+
+
+/* Button */
+.button {
+    border: 1.5px solid var(--color-primiry);  /* theo bản thiết kế figma */
+    height: 44px ;
+    color: var(--color-primiry);
+    background-color: transparent;
+    border-radius: 57px ; 
+    padding: 0 28px ;
+    display: inline-flex;
+    align-items: center;
+    font-size: 16px ;
+    font-weight: 700 ; 
+}
+
+.button i{
+    margin-left: 8px;
+}
+
+.button-primiry{
+    background-color: var(--color-primiry);
+    color: #f3f3f3;
+}
+/*End Button */
+
+
+/* Header */
+.header {
+    padding: 28px 0px ;
+    position: relative ; /* vị trí tương đối so với vị trí mặc định, position khác static để có z-index */
+    z-index: 999 ;
+
+}
+
+.header .inner-wrap{
+    display: flex; /* để nằm trên cùng hàng ngang  */
+    align-items: center; /* để hàng ngang thẳng hàng  */
+}
+
+.header .inner-logo img {
+    width: auto ; /*  để dễ dàng chỉnh sửa , ảnh k co dãn */
+    height: 40px ; 
+}
+
+.header .inner-menu{
+    flex: 1 ; /* menu nên để chiếm phần còn lại */
+}
+
+.header .inner-menu ul {
+    display: flex ; 
+    justify-content: center; /* căn giữa hàng ngang */
+    list-style-type: none;   /* ẩn chấm tròn của thẻ li */
+    padding: 0px ; /* Reset lại vì ul có sẵn padding */
+    margin: 0px ; /* Reset lại vì ul có sẵn margin */
+}
+
+.header .inner-menu ul li {
+    margin: 0 24px ;
+}
+
+.header .inner-menu ul li a {
+    color: var(--color-primiry); /*Sử dụng màu cho chữ trong thẻ a*/
+    font-size: 16px ; 
+    font-weight: 700 ;
+}
+
+.header .inner-search {
+    margin-right: 14px; 
+}
+
+.header .inner-search form {
+    display: flex; /* Để sử dụng được align-items */
+    align-items: center ; /*căn ngang thẳng hàng*/
+    background: #f3f3f3;
+    border-radius: 46px;
+    width: 280px ; 
+    height: 44px ;
+    overflow: hidden ;  /* nội dung bên trong tràn ra thì ẩn đi */ 
+    padding-right: 15px ;
+}    
+
+
+.header .inner-search form button {
+    height: 44px ; /* set bằng input */
+    width: 44px ; /* set bằng height */
+    font-size: 20px ; /* theo width trong figma */
+    color: var(--color-text-light);
+    background-color: transparent  ;  /* nền trong suốt */
+    border: 0 ;  /* reset border của thẻ button */
+}
+
+.header .inner-search form input {
+    flex: 1 ; /* chiếm phần còn lại của thẻ form */
+    font-size: 14px ;
+    border: 0 ; /* reset border của thẻ input */
+    background-color: transparent  ;  /* nền trong suốt */
+    outline: 0 ;  /* reset border khi nhấn vào input */
+}
+
+.header .inner-button-menu {
+    display: none ;  /* ban đầu thì bị ẩn đi */
+}
+
+.header .inner-button-search {
+    display: none ;  /* ban đầu thì bị ẩn đi */
+}
+
+@media (max-width : 1199.98px ) {  /* reponsive header cho màn hình 1199.98px */  
+    .header .button {
+        display: none ; /* ẩn nút tham gia cộng đồng */
+    }
+
+    .header .inner-search {
+        margin-right: 0px ; /* bỏ margin-right của thanh search đi */
+    }
+}
+
+@media (max-width : 991.98px ) { /* reponsive header cho màn hình 991.98px */
+    .header .inner-wrap {
+        justify-content: space-between;
+    }
+    
+    .header .inner-menu {
+        display: none ;  /* ẩn menu */
+    }
+
+    .header .inner-search {
+        display: none ; /* ẩn thanh search */
+    }
+
+    .header .inner-button-menu , .header .inner-button-search  { /* cả button menu và button search */
+        display: inline-block ;   /* hiện button menu lên */
+        width: 32px ;
+        height: 32px ; 
+        background-color: transparent ; /* nút không có bg */
+        border: 0 ;  /* nút không có viền */
+        font-size: 24px ;
+    }
+}
+
+@media (max-width : 575.98px) {  /* reponsive header cho màn hình 575.98px , phải giống bản thiết kế */
+    .header .inner-logo img {
+        height: 32px ;  
+    }
+}
+
+/* End Header */
+
+/* Section-1 */
+
+.section-1{
+    border-radius: 0px 0px 40px 40px;
+    background: linear-gradient(103deg, #FCEED5 6.43%, #FCEED5 78.33%, #FFE7BA 104.24%);
+    margin-top: -103px ;
+    padding-top: 103px ; 
+    overflow: hidden; /* cái gì thừa thì ẩn đi */
+}
+
+.section-1 .inner-wrap {
+    display: flex; /* để chữ và ảnh cùng nằm trên 1 dòng */
+    position: relative ; /* vị trí tương đối so với vị trí mặc định */
+}
+
+.section-1 .inner-bg-head{ /* vẽ khối bg-head */
+    width: 635px;
+    height: 635px;
+    border-radius: 99px;
+    background: #F7DBA7 ;
+    position: absolute; /* vị trí tuyệt đối so với phần tử cha */
+    bottom: 115%  ; 
+    left: -360px;
+    transform: rotate(25.23deg); /* quay 1 góc 25 độ*/
+}
+
+.section-1 .inner-content {
+    width: 50%;  /* chia content và image */
+    padding-top: 80px ; /* cách bên trên 1 đoạn */
+    padding-right: 76px ; /* cách bên phải 1 đoạn */
+    position: relative ; /* vị trí tương đối so với vị trí mặc định */
+}
+
+.section-1 .inner-content .inner-bg-1{
+    position: absolute; /* vị trí tuyệt đối so với phần tử cha */
+    top: 63px ; /* chỉnh vị trí của inner-bg-1 so với phần tử cha */
+    left: -10px ; /* chỉnh vị trí của inner-bg-1 so với phần tử cha */
+}
+
+.section-1 .inner-content .inner-bg-2{
+    position: absolute; /* vị trí tuyệt đối so với phần tử cha */
+    bottom: 0 ; /* chỉnh vị trí của inner-bg-1 so với phần tử cha */
+    left: -80px ; /* chỉnh vị trí của inner-bg-1 so với phần tử cha */
+}
+
+.section-1 .inner-content .inner-title {
+    color: var(--color-primiry);
+    font-size: 60px;
+    font-weight: 700;
+    text-transform: capitalize; /* viết hoa mỗi chữ */ 
+    margin-top: 0 ; /* Reset margin của thẻ h1 */
+    margin-bottom: 4px ; 
+    position: relative ;  /* vị trí tương đối so với vị trí mặc định, position khác static để có z-index */
+}
+
+.section-1 .inner-content .inner-subtitle {
+    color: var(--color-primiry);
+    font-size: 46px ;
+    font-weight: 700 ;
+    text-transform: capitalize; /* viết hoa mỗi chữ */ 
+    margin-top: 0 ; /* Reset margin của thẻ h2 */
+    margin-bottom: 24px ; 
+}
+
+.section-1 .inner-content .inner-desc{
+    color: var(--color-text-dark);
+    font-size: 16px; 
+    font-weight: 500 ; 
+    margin-bottom: 34px ;
+    margin-top: 0px ; 
+}
+
+.section-1 .inner-content .inner-buttons a{
+    margin-right: 18px ; 
+}
+
+.section-1 .inner-image {
+    width: 50%; /* chia content và image */
+    position: relative ; /* vị trí tương đối so với vị trí mặc định */
+}
+
+
+.section-1 .inner-image .inner-thumb {
+    width: 100% ;/*nằm trong đúng inner-image không bị tràn ra */
+    height: auto; /* đúng tỉ lệ */
+    padding-right: 74px; /* cách bên phải 74px */
+    margin-bottom: -8px; /* ảnh thò xuống bên dưới để không thừa 1 đoạn */
+    position: relative ; /* vị trí tương đối so với vị trí mặc định, position khác static để có z-index */
+    z-index: 1 ;
+}
+
+.section-1 .inner-image .inner-bg-3 {
+    position: absolute; /* vị trí tuyệt đối so với phần tử cha */
+    bottom: 0 ;  /* chỉnh vị trí của ảnh */
+    left: -100px ;  /* chỉnh vị trí của ảnh */
+    width: calc(100% + 200px ) ; /* chỉnh kích thước ảnh */
+
+}
+
+@media(max-width : 1199.98px) { /* reponsive section-1 cho màn hình  1199.98px */
+    .section-1 .inner-content .inner-title {
+        font-size: 48px ;
+    }
+
+    .section-1 .inner-content .inner-subtitle  {
+        font-size: 34px ;
+        margin-bottom: 15px;
+    }
+
+    .section-1 .inner-content .inner-desc {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+
+    .section-1 .inner-content .inner-bg-2 {
+        height: 60px;
+    }
+}
+
+@media(max-width : 991.98px) { /* reponsive section-1 cho màn hình  991.98px */
+    .section-1 .inner-bg-head {
+        left: -62px ;
+        bottom: 108%;
+    }
+
+    .section-1 .inner-wrap {
+        flex-wrap: wrap ; /* để content và image nằm ở 2 hàng */
+    }
+
+    .section-1 .inner-content {
+        width: 100% ;  /* full chiều ngang*/
+        padding-top: 20px ;
+        padding-right: 0 ;
+        margin-bottom: 50px ;
+    }
+
+    .section-1 .inner-image {
+        width: 100%;  /* full chiều ngang*/
+        padding-top: 20px ;
+    }
+
+    .section-1 .inner-content .inner-bg-1 {
+        display: none ;  /* ẩn hình bg-1 */
+    }
+
+    .section-1 .inner-content .inner-bg-2 {
+        display: none ;  /* ẩn hình bg-2 */
+    }
+}
+
+@media(max-width : 767.98px) { /* reponsive section-1 cho màn hình 767.98px */ 
+    .section-1 .inner-bg-head {
+        left: -148px ;
+        bottom: 110%;
+    }
+}
+
+@media(max-width :575.98px) { /* reponsive section-1 cho màn hình 575.98px , phải giống bản thiết kế */   
+    .section-1 .inner-bg-head {
+        left: -19vw ;
+        bottom: 105%;
+        width: 100vw ;
+        height: 100vw ;
+    }
+    
+    .section-1 .inner-content .inner-title {
+        font-size: 46px ;
+        margin-bottom: 0 ;
+    }
+
+    .section-1 .inner-content .inner-subtitle{
+        font-size: 28px ;
+        margin-bottom: 12px;
+    }
+
+    .section-1 .inner-content .inner-desc {
+        font-size: 12px; 
+        margin-bottom: 32px ;
+    }
+
+    .section-1 .inner-content .inner-buttons a {
+        margin-bottom: 5px ;
+        margin-top: 5px ; 
+    }
+}
+
+/* End Section-1 */
+
+/* Box Head  */
+.box-head {
+    display: flex ; /*nội dung cùng nằm trên 1 hàng*/
+    justify-content: space-between; /* các inner cách sang 2 bên  */
+    align-items: flex-end ; /*căn ngang thẳng hàng*/
+    margin-bottom: 28px ; 
+}
+
+.box-head .inner-title {
+    margin-top: 0; 
+    margin-bottom: 0 ; 
+    font-size: 24px ;
+    font-weight: 700;
+    text-transform: capitalize; /*Viết hoa chữ cái đầu */
+    color: var(--color-primiry) ; 
+}
+
+.box-head .inner-sub-title {
+    color: #000;
+    font-size: 16px; 
+    font-weight: 500 ;
+    margin-bottom: 2px ; 
+}
+
+@media (max-width : 767.98px ) { /* reponsive box-head cho màn hình 767.98px , phải giống bản thiết kế */  
+    .box-head .inner-sub-title {
+        font-size: 14px ;
+    }
+
+    .box-head .inner-title {
+       font-size: 20px ; 
+    }
+}
+
+@media (max-width : 575.98px ) { /* reponsive box-head cho màn hình 575.98px , phải giống bản thiết kế */  
+    .box-head .inner-right {  /* ẩn inner-right đi */  
+        display: none ; 
+    }
+
+    .box-head {
+        margin-bottom: 20px ; 
+    }
+}
+
+
+/* End Box Head  */
+
+/* Section-2 */
+.section-2 {
+    padding: 60px 0 40px 0 ; 
+}
+
+.section-2 .inner-wrap {
+    display: flex ; /* nội dung cùng nằm ở 1 dòng */
+    flex-wrap: wrap; /* dùng để xuống hàng */
+
+}
+
+.section-2 .inner-item {
+    margin-bottom: 20px; 
+    box-shadow: 0px 4px 28px -2px rgba(0, 0, 0, 0.08);
+    width: calc(100%/4 - 60px/4 );
+    margin-right: 20px ; 
+    padding: 8px 8px 0px 8px ;
+    border-radius: 12px ;
+}
+
+.section-2 .inner-item:nth-child(4n) {
+    margin-right: 0px ; 
+}
+
+.section-2 .inner-item .inner-image {
+    width:100% ;/* dùng để chỉnh kích thước hình ảnh */
+    aspect-ratio: 1/1 ; /* tỉ lệ của hình ảnh */
+    line-height: 1 ;
+}
+
+.section-2 .inner-item .inner-image img {
+    width:100% ;/* dùng để chỉnh kích thước hình ảnh */
+    height: 100% ;
+    object-fit: cover ;  /* ảnh vừa với khung , tự động cắt phần thừa */
+}
+
+.section-2 .inner-item .inner-content {
+    margin-top: 8px ; 
+    padding: 8px 8px 20px 8px ; 
+      
+}
+
+.section-2 .inner-item .inner-content .inner-title {
+    margin-top: 0px ; 
+    font-size: 16px ;
+    font-weight: 700 ;
+    margin-bottom: 4px; 
+}
+
+.section-2 .inner-item .inner-content .inner-title a{
+    color: var(--color-text-dark) ;
+}
+
+.section-2 .inner-item .inner-content .inner-info {
+    display: flex ;  /* nội dung cùng nằm ở 1 dòng */
+    flex-wrap: wrap ; /* dùng để xuống hàng */
+}
+
+.section-2 .inner-item .inner-content .inner-info-item{
+    color: var(--color-text-light) ; 
+    font-size: 12px ;
+    font-weight: 500 ; 
+    margin-bottom: 4px ;
+    margin-right: 26px ; 
+    position: relative; /* vị trí tương đối so với vị trí mặc định để chỉnh vị trí dấu chấm bên dưới */
+}
+
+.section-2 .inner-item .inner-content .inner-info-item::after { /* tạo phần từ giả */
+    content: "." ;
+    color: var(--color-text-light) ;
+    font-size: 20px ;
+    position: absolute;  /* vị trí tuyệt đối so với phần tử cha */
+    left: calc(100% + 10px ) ;
+    top: -5px ; 
+    line-height: 1 ;  /* reset lại line height vì line height đang để 1.5 */
+}
+
+.section-2 .inner-item .inner-content .inner-info-item:last-child::after{ /* affter item cuối cùng  */
+    content: "" ; /* bỏ dấu chấm  */
+}
+
+.section-2 .inner-item .inner-content .inner-info-item span {
+    font-weight: 700 ; 
+}
+
+.section-2 .inner-item .inner-content .inner-price{
+    font-size: 14px ;
+    font-weight: 700 ;
+    color: var(--color-text-dark); 
+}
+
+.section-2 .inner-button-bottom { 
+    display: none ; /* lúc đẩu thì ẩn nút button bottom đi*/  
+} 
+
+@media(max-width : 991.98px ) { /* reponsive section-2 cho màn hình 991.98px */  
+    .section-2 .inner-item { /* chỉnh lại mỗi dòng có 3 item */  
+        width: calc(100%/3 - 40px/3);
+    }
+
+    .section-2 .inner-item:nth-child(4n) { /* chỉnh lại các item thứ 4 thì vẫn có margin right */  
+        margin-right: 20px ;
+    }
+
+    .section-2 .inner-item:nth-child(3n) { /* chỉnh lại các item thứ 3 thì không có margin right */  
+        margin-right: 0px ; 
+    }
+}
+
+@media(max-width : 767.98px ) { /* reponsive section-2 cho màn hình 767.98px */  
+    .section-2 .inner-item { 
+        width: calc(100%/2 - 20px/2); /* chỉnh lại mỗi dòng có 2 item */ 
+    }
+
+    .section-2 .inner-item:nth-child(3n) { /* chỉnh lại các item thứ 3 thì vẫn có margin right */  
+        margin-right: 20px ;
+    }
+
+    .section-2 .inner-item:nth-child(2n) { /* chỉnh lại các item thứ 2 thì không có margin right */  
+        margin-right: 0px ; 
+    }
+}
+
+@media(max-width : 575.98px ) { /* reponsive section-2 cho màn hình 575.98px , phải giống bản thiết kế */  
+    .section-2 {
+        padding: 40px 0 40px 0;
+    }
+
+    .section-2 .inner-item { 
+       margin-right: 12px;
+       margin-bottom: 12px ;
+       width: calc(100%/2 - 12px/2); /* chỉnh lại mỗi dòng có 2 item mà khoảng cách giữa các item */  
+    }
+
+    .section-2 .inner-item:nth-child(3n) { /* chỉnh lại các item thứ 3 thì margin right còn 12px */  
+        margin-right: 12px ;
+    }
+
+    .section-2 .inner-item:nth-child(2n) { /* chỉnh lại các item thứ 2 thì margin right = 0 */  
+        margin-right: 0px ;
+    }
+
+    .section-2 .inner-item .inner-content .inner-title {
+        font-size: 14px ;
+    }
+
+    .section-2 .inner-item .inner-content .inner-info-item::after {  /* ẩn dấu chấm */  
+        display: none ;
+    }
+
+    .section-2 .inner-button-bottom {  
+        display: block ;  /* hiện nút bottom */  
+    }
+
+    .section-2 .inner-button-bottom .button {   /* để nút chiếm cả chiều ngang vì button để kiểu inline flex */  
+        display: flex ;
+        justify-content: center;  /* căn giữa nút */  
+    }
+}
+
+/* End Section-2 */
+
+/* Section-3 */
+.section-3 {
+    padding-bottom: 60px ;
+}
+
+.section-3 .inner-wrap {
+    background-image: url(../imagess/section3-bg-1.svg); /* lấy hình ảnh làm bg */
+    display: flex ;  /* để inner-image và inner-content trên 1 hàng */
+    justify-content: space-between ;  /* 1 thằng bên trái 1 thằng bên phải */
+    background-size: cover ; /* sửa kích thước ảnh mà không bị co giãn , tự động cắt phần thừa */
+    background-repeat: no-repeat ;  /* không lặp lại bg */
+    background-position: bottom ; /* chỉnh vị trí của khối bg */
+    border-radius: 20px ;
+    padding-top: 36px ;
+}
+
+.section-3 .inner-wrap .inner-image {
+    width: 42% ; /* 42% so với inner-wrap */
+}
+
+.section-3 .inner-wrap .inner-image img {
+    width: 100% ; /* 100% so với inner-image */
+    height: auto ; /* đúng tỉ lệ */
+    margin-bottom: -6px ;
+}
+
+.section-3 .inner-wrap .inner-content{
+    width: 42% ; /* 42% so với inner-wrap */
+    text-align: right; /* Nội dung sát bên phải */
+    padding-right: 85px ;
+    padding-top: 22px;
+}
+
+.section-3 .inner-wrap .inner-content .inner-title {
+    margin-top: 0 ;
+    font-size: 52px ;
+    font-weight: 700;
+    text-transform: capitalize; /* In hoa chữ cái đầu*/
+    margin-bottom: 8px ;
+    color: var(--color-primiry); 
+}
+
+.section-3 .inner-wrap .inner-content .inner-sub-title {
+    margin-top: 0 ;
+    font-size: 36px ;
+    font-weight: 700;
+    text-transform: capitalize; /* In hoa chữ cái đầu*/
+    margin-bottom: 8px ;
+    color: var(--color-primiry); 
+}
+
+.section-3 .inner-wrap .inner-content .inner-desc{
+    font-size: 12px; 
+    font-weight: 500 ;
+    color: var(--color-text-light);
+    margin-top: 0 ;
+    margin-bottom: 24px ; 
+}
+
+.section-3 .inner-wrap .inner-content .inner-buttons a{
+    margin-left: 18px ;
+}
+
+@media(max-width: 1199.98px) { /* reponsive section-3 cho màn hình 1199.98px */ 
+    .section-3 .inner-wrap .inner-content {
+        padding-right: 30px ; 
+        padding-top: 0 ; 
+    }
+
+    .section-3 .inner-wrap .inner-content .inner-title{
+        font-size: 36px ;
+    }
+
+    .section-3 .inner-wrap .inner-content .inner-sub-title {
+        font-size: 24px;
+    }
+
+    .section-3 .inner-wrap .inner-content .inner-desc {
+        margin-bottom: 20px ;
+    }
+
+    .section-3 .inner-wrap .inner-content {
+        width: 48% ; /* Tăng chiều rộng của content để 2 button cùng nằm được trên 1 hàng */
+    }
+
+    .section-3 .inner-wrap .inner-content .inner-buttons a {
+        margin-left: 10px ;
+    }
+}
+
+@media(max-width: 991.98px) { /* reponsive section-3 cho màn hình 991.98px */ 
+    .section-3 .inner-wrap {
+        flex-wrap: wrap ; /* để content và image xuống hàng được */ 
+        background-image: url(../imagess/section3-bg-1-mobile.svg) ; /* hiện nền ảnh khác */ 
+        background-position: center ; /* chỉnh vị trí bg */ 
+    }
+
+    .section-3 .inner-wrap .inner-content {
+        width: 100%;  /* để content chiếm kích thước 100% */ 
+        padding-right: 0 ;
+        padding-top: 0 ;
+        order: 1 ; /* chỉnh thứ thứ của content và image */ 
+        text-align: center ;
+        padding: 20px ; 
+    }
+
+    .section-3 .inner-wrap .inner-image { /* để image chiếm kích thước 100% */ 
+        width: 100% ;
+        order: 2 ; /* chỉnh thứ thứ của content và image */ 
+    }
+
+    .section-3 .inner-wrap .inner-content .inner-buttons a {
+        margin-left: 5px; 
+        margin-right: 5px; 
+    }
+}
+
+@media(max-width: 575.98px) { /* reponsive section-3 cho màn hình 575.98px */ 
+    .section-3 .inner-wrap .inner-content .inner-buttons a {
+        margin-top: 5px ; 
+        margin-bottom: 5px ; 
+    }
+}
+
+
+
+/* End Section-3 */
+
+/* Section-4 */
+.section-4{
+    margin-bottom: 40px ;
+}
+
+.section-4 .inner-button-bottom {
+    display: none ; /* ban đầu thì ẩn inner-button-bottom đi */
+}
+
+.section-4 .inner-wrap{
+    display: flex;  /* để các item cùng nằm trên 1 hàng */
+    flex-wrap: wrap ;  /* để item có thể tự động xuống hàng khi đầy */
+}
+
+.section-4 .inner-item {
+    border-radius: 12px ;
+    background: #FFF;
+    box-shadow: 0px 4px 20px -2px rgba(0, 0, 0, 0.08) ; /* đổ bóng */
+    width: calc(100%/3 - 40px/3);
+    margin-right: 20px ;
+    padding: 8px ;
+    margin-bottom: 20px ; 
+}
+
+.section-4 .inner-item:nth-child(3n) { /* để item có thể tự động xuống hàng khi đầy */
+    margin-right: 0 ; 
+}
+
+.section-4 .inner-item .inner-image img {
+    width: 100% ;  /* vừa với box cha */
+    aspect-ratio: 364/243  ; /* theo tỉ lệ bản thiết kế */
+    object-fit: cover ; /* ảnh vừa với khung , tự động cắt phần thừa */
+    border-radius: 10px ; 
+}
+
+.section-4 .inner-item .inner-content {
+    margin-top: 8px ; 
+    padding: 8px ;  
+}
+
+.section-4 .inner-item .inner-content .inner-tag {
+    background-color: var(--color-blue) ; 
+    color: #FFF; 
+    border-radius: 28px ; 
+    padding: 2px 10px ; 
+    display: inline-block ; /* để hiển thị đúng */
+    font-size: 10px ; 
+    font-weight: 700 ; 
+    margin-bottom: 10px ;
+}
+
+.section-4 .inner-item .inner-content .inner-title {
+    font-size: 16px;
+    font-weight: 700 ;
+    margin-top: 0 ;  /* rest margin thẻ h3*/
+    margin-bottom: 6px ;
+}
+
+.section-4 .inner-item .inner-content .inner-title a {
+    color: var(--color-text-dark);
+}
+
+.section-4 .inner-item .inner-content .inner-title a:hover {  /* khi di vào thì đổi màu chữ*/
+    color: var(--color-primiry); 
+}
+
+.section-4 .inner-item .inner-content .inner-desc {
+    color: #242b33;
+    font-size: 14px ;
+    font-weight: 400 ;
+    overflow: hidden; 
+    display: -webkit-box;
+    -webkit-line-clamp: 4 ; 
+    -webkit-box-orient: vertical ; 
+} 
+
+@media(max-width: 767.98px) { /* reponsive section-4 cho màn hình 767.98px */
+    .section-4 .inner-item {
+        width: 100% ;   /* mỗi item 1 hàng */
+        margin-right: 0 ; 
+        margin-bottom: 12px ;  
+    }
+}
+
+@media(max-width: 575.98px) { /* reponsive section-4 cho màn hình 575.98px */    
+    .section-4 .inner-button-bottom {
+        display: block ; /* hiện inner-button-bottom */
+    }
+
+    .section-4 .inner-button-bottom .button {
+        display: flex ;   /* để nút chiếm cả chiều ngang vì button để kiểu inline flex */ 
+        justify-content: center ;  /* căn giữa nút */ 
+    }
+}
+/*End Section-4 */
+
+/* Footer */
+
+.footer {
+    background: linear-gradient(103deg , #FCEED5 6.43%, #FCEED5 7878.33%, #FFE7BA 104.24% );
+    border-radius: 40px 40px 0px 0px ;
+    padding: 80px 0 40px 0 ;
+}
+
+.footer .inner-top {
+    display: flex ; /* inner-title và inner-form cùng trên 1 dòng */
+    align-items: center ; /* căn ngang inner-title và inner-form */
+    justify-content: space-between ; /* inner-title bên trái và inner-form bên phải */
+    background-color: var(--color-primiry) ;
+    border-radius: 16px ;
+    padding: 32px ;
+    margin-bottom: 40px ;
+}
+
+.footer .inner-top .inner-title {
+    width: calc(40% - 20px ) ;
+    font-size: 20px ; 
+    font-weight: 700 ;
+    color: #fdfdfd ;
+    text-transform: capitalize ;
+}
+
+.footer .inner-top .inner-form {
+    flex: 1; /* chiếm phần còn lại của thẻ cha */
+    border-radius: 14px ;
+    background: #FFF ;
+    padding: 12px ;
+    display: flex ;
+}
+
+.footer .inner-top .inner-form input {
+    height: 48px ;
+    border-radius: 8px ; 
+    border: 1px solid #99a2a5 ;
+    padding: 0px 28px ;
+    outline: none ; /* ẩn đường viền bên ngoài ô input */
+    flex: 1 ; 
+    margin-right: 12px ;
+}
+
+.footer .inner-top .inner-form button {
+    height: 48px ;
+    border-radius: 8px ;
+    background-color: var(--color-primiry);
+    border: 0 ;
+    color: #fdfdfd; 
+    font-size: 16px ;
+    font-weight: 500 ; 
+    padding: 0px 28px ;
+    cursor: pointer ;/* kiểu hiển thị chuột khi di vào hình bàn tay */
+}
+
+.footer .inner-middle {
+    display: flex ; /* để inner-menu và inner-socials cùng tren 1 hàng */
+    justify-content: space-between ;/* inner-menu bên trái và inner-socials bên phải */
+    align-items: center ; /* căn ngang inner-menu và inner-socials */
+    padding-bottom: 40px ;
+    border-bottom: 1px solid #ccd1d2;
+    margin-bottom: 40px ;
+} 
+
+.footer .inner-middle .inner-menu ul {
+    list-style: none ; /* ẩn dấu chấm của thẻ ul */
+    padding: 0 ; 
+    margin: 0;
+    display: flex ; /* để các thẻ li cùng 1 hàng */
+}
+
+.footer .inner-middle .inner-menu ul li {
+    margin-right: 60px ;  
+}
+
+.footer .inner-middle .inner-menu ul li:last-child {
+    margin-right: 0 ;
+}
+
+.footer .inner-middle .inner-menu ul li a {
+    font-size: 16px ;
+    font-weight: 500 ;
+    color: var(--color-text-dark); 
+
+}
+
+.footer .inner-middle .inner-menu ul li a:hover {
+    color: var(--color-primiry);
+}
+
+.footer .inner-middle .inner-socials ul {
+    list-style: none ; /* ẩn dấu chấm của thẻ ul */
+    padding: 0 ;
+    margin: 0 ;
+    display: flex ; /* để các thẻ li cùng 1 hàng */
+    align-items: center ;
+}
+
+.footer .inner-middle .inner-socials ul li {
+    margin-left: 40px ;
+}
+
+.footer .inner-middle .inner-socials ul li a {
+    font-size: 24px ; 
+    color: var(--color-text-dark);
+}
+
+.footer .inner-middle .inner-socials ul li a:hover {
+    color: var(--color-primiry);
+}
+
+.footer .inner-bottom {
+    display: flex ; /* để inner-copyright , inner-logo , inner-link cùng tren 1 hàng */
+    align-items: center ; /* căn ngang inner-copyright , inner-logo , inner-link */
+    justify-content: space-between ; /* inner-copyright bên trái , inner-logo ở giữa , inner-link bên phải */
+}
+
+.footer .inner-bottom .inner-copyright {
+    font-size: 14px ;
+    font-weight: 500 ;
+    color: #667479;
+}
+
+.footer .inner-bottom .inner-logo img {
+    height: 40px ;
+    width: auto ;
+}
+
+.footer .inner-bottom .inner-link ul {
+    list-style: none ; /* ẩn dấu chấm của thẻ ul */
+    padding: 0 ;
+    margin: 0 ;
+    display: flex ; /* để các thẻ li cùng 1 hàng */
+    align-items: center ;
+}
+
+.footer .inner-bottom .inner-link ul li {
+    margin-left: 32px ;
+}
+
+.footer .inner-bottom .inner-link ul li a {
+    font-size: 14px ;
+    font-weight: 500 ;
+    color: #667479 ;
+}
+
+@media(max-width: 991.98px) { /* reponsive footer cho màn hình 991.98px */   
+    .footer .inner-top {
+        flex-wrap: wrap ;  /* để inner-title và inner-form mỗi cái 1 hàng */   
+    }
+
+    .footer .inner-top .inner-title {
+        width: 100% ; /* để inner-title chiếm full chiều ngang */   
+        margin-top: 0 ;
+        margin-bottom: 16px ;
+    }
+
+    .footer .inner-middle {
+        flex-wrap: wrap ; /* để inner-menu và inner-socials mỗi cái 1 hàng */
+    }
+
+    .footer .inner-middle .inner-menu { 
+        width: 100% ; /* để inner-menu chiếm full chiều ngang */ 
+        margin-bottom: 20px ; 
+
+    }
+
+    .footer .inner-middle .inner-menu ul {
+        justify-content: center; /* vì thẻ ul đẻ flex nên phải vào thẻ ul để chỉnh center */
+    }
+
+    .footer .inner-middle .inner-menu ul li {
+        margin: 0px 20px ;  
+    }
+
+    .footer .inner-middle .inner-menu ul li:first-child {
+        margin-left: 0px ;  
+    }
+
+    .footer .inner-middle .inner-socials {
+        width: 100% ; /* để inner-socials chiếm full chiều ngang */
+    } 
+
+    .footer .inner-middle .inner-socials ul {
+        justify-content: center; /* vì thẻ ul đẻ flex nên phải vào thẻ ul để chỉnh center */
+    }
+
+    .footer .inner-middle .inner-socials ul li {
+        margin: 0px 20px ; /* vì thẻ ul đẻ flex nên phải vào thẻ ul để chỉnh center */
+    }
+
+    .footer .inner-bottom {
+        flex-wrap: wrap ;   /* để các inner trong bottom mỗi cái chiếm 1 hàng */ 
+    }
+
+    .footer .inner-bottom .inner-copyright {
+        width: 100% ;  /* để inner-copyright chiếm full chiều ngang */
+        text-align: center ;  /* căn giữa nội dung */
+        font-size: 10px ;
+        order: 3 ; /* ở vị trí thứ 3 */
+    }
+
+    .footer .inner-bottom .inner-logo {
+        width: 100% ;  /* để inner-logo chiếm full chiều ngang */
+        text-align: center ;  /* căn giữa nội dung */
+        order: 1 ; /* ở vị trí thứ 1 */
+        margin-bottom: 32px ;
+    }
+
+    .footer .inner-bottom .inner-link {  /* để inner-links chiếm full chiều ngang */
+        width: 100% ;  /* để inner-link chiếm full chiều ngang */
+        order: 2 ; /* ở vị trí thứ 2 */
+        margin-bottom: 12px ; 
+    }
+
+    .footer .inner-bottom .inner-link ul {
+        justify-content: center ; /* vì thẻ ul đẻ flex nên phải vào thẻ ul để chỉnh center */
+    }
+
+    .footer .inner-bottom .inner-link ul li a {
+        font-size: 12px ;
+    }
+
+    .footer .inner-bottom .inner-link ul li {
+        margin: 0 7.5px ;
+    }
+} 
+
+@media(max-width: 575.98px) { /* reponsive footer cho màn hình 991.98px , phải giống thiết kế */  
+    .footer {
+        margin-top: 40px ;
+        margin-bottom: 16px ;
+    }
+
+    .footer .inner-top {
+        padding: 16px ;
+    }
+
+    .footer .inner-top .inner-form {
+        flex-wrap: wrap ; /* để form và button mỗi cái 1 hàng  */ 
+    }
+
+    .footer .inner-top .inner-form input {
+        width: 100% ; /* để input chiếm full chiều ngang */
+        flex: none ; /* vì đang để flex 1 nên phải chỉnh lại thành none */
+        margin-bottom: 12px ;
+    }   
+
+    .footer .inner-top .inner-form button {
+        width: 100%; /* để button chiếm full chiều ngang */
+    }
+
+    .footer .inner-middle .inner-menu ul  {
+        flex-wrap: wrap ; /* để các thẻ ul menu khi bé quá thì xuống được hàng */
+        justify-content: center;
+    }
+
+    .footer .inner-middle .inner-menu ul li a {
+        font-size: 13px ;
+    }
+
+    .footer .inner-middle .inner-socials ul li a {
+        font-size: 20px ;
+    }
+
+    .footer .inner-middle {
+        margin-bottom: 36px ;
+    }
+
+}
+
+
+/* End Footer */
+
+
